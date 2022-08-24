@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import LoginForm from '../src/components/LoginForm';
+import AdminRoles from '../src/components/AdminRoles';
+import Drawer from './components/Drawer/Drawer';
+import LandingPage from './pages/LandingPage';
+import CreateNewRoleForm from './components/CreateNewRoleForm.js';
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+    <Drawer />
+      <Routes>
+      <Route exact path='/login' element={<LoginForm />}/>
+      <Route exact path='/adminRoles' element={<AdminRoles/>}/>
+      <Route exact path='/createRole' element={<CreateNewRoleForm/>}/>
+
+      </Routes>
+    </Router>
+    </>
   );
 }
 
